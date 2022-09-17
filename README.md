@@ -1,1 +1,1 @@
-# ktype.github.io
+# Typing Game
