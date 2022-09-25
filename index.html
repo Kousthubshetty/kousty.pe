@@ -545,7 +545,7 @@
                                 Medium<input type="radio" name="def" value="medium">
                                 Hard<input type="radio" name="def" value="hard"><br> -->
               </center>
-              <details>
+              <details id="details">
                 <summary>ADVANCED</summary>
                 <input type="radio" name="adv" value="c" /><span
                   ><i class="fa-solid fa-c"></i>&nbsp; C/C++</span
@@ -590,6 +590,9 @@
 </html>
 
 <script>
+  function close(){
+    document.getElementById('details').open=false;
+  }
   var Myip;
   function getIP() {
     $.getJSON("https://api.ipify.org?format=json", function (data) {

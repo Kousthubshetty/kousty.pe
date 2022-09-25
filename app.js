@@ -29,7 +29,7 @@ app.post("/request", (req, res) => {
 
  app.get("/game", (req, res) => {
      difficulty=req.query['select']
-     console.log(difficulty)
+    //  console.log(difficulty)
     //  console.log(req.query['adv'])
     // wordGenerator.selectedWordList=req.query['adv']
     var wordGenerator = require('./wordGenerator')(req.query['adv']);
@@ -37,17 +37,16 @@ app.post("/request", (req, res) => {
     setTimeout(()=>{
         require('./wordGenerator');
         sendWords=global.wordlist;
-        console.log(sendWords); 
+        // console.log(sendWords); 
         res.sendFile(path.join(__dirname, '/keydownEvent.html'));
     }, 500);
  })
-
+ 
  app.post("/wordlist", (req, res) => {
     res.send(sendWords);
  })
  app.post("/difficulty", (req, res) => {
     res.send(difficulty);
-    // res.send(difficulty);
  })
 
 app.listen(port);

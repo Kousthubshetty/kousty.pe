@@ -37,6 +37,7 @@ fs.readFile(File, 'utf8', (err, data) => {
     return;
   }
   global.wordlist=data.split(",");
+  shuffleArray(wordlist)
   // exports.wordlist=wordlist;
   // module.exports.wl = {wordlist};
   // module.exports.wl=wordlist
@@ -45,14 +46,10 @@ fs.readFile(File, 'utf8', (err, data) => {
   // module.exports=wordlist;
 });
 }
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
 
-
-// axios
-// 	.get('https://www.scrapingbee.com/blog/web-scraping-javascript/')
-// 	.then((response) => {
-// 		console.log(response)
-// 	})
-// 	.catch((error) => {
-// 		console.error(error)
-// 	});
-// console.log(wordlist,"aaa")

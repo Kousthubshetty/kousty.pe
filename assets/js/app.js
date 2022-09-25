@@ -20,14 +20,16 @@ axios.post('/wordlist', {})
 	words=response.data;
 })
 .catch(function (error) {
-	console.log("Something went wrong");
+	alert("Something went wrong");
+    history.back()
 });
 axios.post('/difficulty', {})
 .then(function (response) {
 	difficulty=response.data;
 })
 .catch(function (error) {
-	console.log("Something went wrong");
+	alert("Something went wrong");
+    history.back()
 });
 // ----------------------------
 
