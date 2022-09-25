@@ -1,0 +1,1 @@
+auto,else,long,switch,break,enum,register,typedef,case,extern,return,union,char,float,short,unsigned,const,for,signed,void,continue,goto,sizeof,volatile,default,if,static,while,do,int,struct,double,asm,namespace,bool,explicit,new,false,catch,operator,template,friend,private,class,this,inline,public,throw,delete,mutable,protected,true,try,typeid,typename,using,virtual

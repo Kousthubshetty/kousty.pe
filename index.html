@@ -4,9 +4,606 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>nothing</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <title>kous.type</title>
   </head>
-  <body>
-    sdsg
+  <style>
+    .content {
+      position: absolute;
+      height: 80vh;
+      background-color: #04b4e0;
+      width: 85%;
+      border-radius: 30px;
+      left: 7.5%;
+      top: 10vh;
+      box-shadow: 0 0 100px -5px rgb(0 0 0 / 25%);
+    }
+    .white-space {
+      position: absolute;
+      background-color: #fff;
+      height: 100%;
+      width: 70%;
+      border-radius: 30px;
+      right: 0;
+    }
+    .blue-space {
+      position: absolute;
+      height: 100%;
+      width: 30%;
+      border-radius: 30px;
+      left: 0;
+    }
+    .box-content {
+      width: 100%;
+      height: 100%;
+      /* padding: 40px;   */
+      padding-top: 30px;
+      /* padding-left: 40px; */
+      /* padding-right: 30px; */
+    }
+    .btn-primary {
+      /* Font & Text */
+      font-family: poppins, Helvetica, sans-serif;
+      font-size: 15px;
+      font-style: normal;
+      font-variant: normal;
+      font-weight: 400;
+      letter-spacing: normal;
+      line-height: 18px;
+      text-decoration: none solid rgb(255, 255, 255);
+      text-align: center;
+      text-indent: 0px;
+      text-transform: none;
+      vertical-align: baseline;
+      white-space: normal;
+      word-spacing: 0px;
+
+      /* Color & Background */
+      background-attachment: scroll;
+      background-color: rgba(0, 0, 0, 0);
+      background-image: none;
+      background-position: 0% 0%;
+      background-repeat: repeat;
+      color: rgb(255, 255, 255);
+
+      /* Box */
+      height: 46px;
+      width: 168.406px;
+      border: 2px solid rgb(255, 255, 255);
+      border-top: 2px solid rgb(255, 255, 255);
+      border-right: 2px solid rgb(255, 255, 255);
+      border-bottom: 2px solid rgb(255, 255, 255);
+      border-left: 2px solid rgb(255, 255, 255);
+      margin: 0px 0px 11.25px;
+      padding: 12px 31.5px;
+      max-height: none;
+      min-height: 0px;
+      max-width: none;
+      min-width: 0px;
+
+      /* Positioning */
+      position: relative;
+      top: 0px;
+      bottom: 0px;
+      right: 0px;
+      left: 0px;
+      float: none;
+      display: inline-block;
+      clear: none;
+      z-index: auto;
+
+      /* List */
+      list-style-image: none;
+      list-style-type: disc;
+      list-style-position: outside;
+
+      /* Table */
+      border-collapse: separate;
+      border-spacing: 0px 0px;
+      caption-side: top;
+      empty-cells: show;
+      table-layout: auto;
+
+      /* Miscellaneous */
+      overflow: visible;
+      cursor: pointer;
+      visibility: visible;
+
+      /* Effects */
+      transform: none;
+      transition: all 0.3s ease-in-out 0s;
+      outline: rgb(255, 255, 255) dashed 0px;
+      outline-offset: 0px;
+      box-sizing: border-box;
+      resize: none;
+      text-shadow: none;
+      text-overflow: clip;
+      word-wrap: normal;
+      box-shadow: rgba(0, 0, 0, 0.22) 0px 10px 10px -8px;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      /* background-color: red; */
+    }
+    .btn-primary-w {
+      /* Font & Text */
+      /* position: absolute; */
+      /* bottom: 20px; */
+      /* justify-content: center; */
+      font-family: poppins, Helvetica, sans-serif;
+      font-size: 15px;
+      /* font-style: normal;
+	font-variant: normal; */
+      /* font-weight: 400;
+	letter-spacing: normal;
+	line-height: 18px; */
+      text-decoration: none solid #05b4df;
+      text-align: center;
+      /* text-indent: 0px; */
+      /* text-transform: none;
+	vertical-align: baseline;
+	white-space: normal;
+	word-spacing: 0px; */
+
+      /* Color & Background */
+      /* background-attachment: scroll;
+	background-color: rgba(0, 0, 0, 0);
+	background-image: none;
+	background-position: 0% 0%;
+	background-repeat: repeat; */
+      color: #05b4df;
+
+      /* Box */
+      height: 46px;
+      width: 168.406px;
+      border: 2px solid rgb(255, 255, 255);
+      border-top: 2px solid rgb(255, 255, 255);
+      border-right: 2px solid rgb(255, 255, 255);
+      border-bottom: 2px solid rgb(255, 255, 255);
+      border-left: 2px solid rgb(255, 255, 255);
+      margin: 0px 0px 11.25px;
+      padding: 12px 31.5px;
+      /* max-height: none;
+	min-height: 0px;
+	max-width: none;
+	min-width: 0px; */
+
+      /* Positioning */
+      position: absolute;
+      /* top: 0px;
+	bottom: 0px;
+	right: 0px;
+	left: 0px; */
+      /* float: none; */
+      display: inline-block;
+      /* clear: none;
+	z-index: auto; */
+
+      /* List */
+      /* list-style-image: none;
+	list-style-type: disc;
+	list-style-position: outside; */
+
+      /* Table */
+      /* border-collapse: separate;
+	border-spacing: 0px 0px;
+	caption-side: top;
+	empty-cells: show;
+	table-layout: auto; */
+
+      /* Miscellaneous */
+      /* overflow: visible; */
+      cursor: pointer;
+      /* visibility: visible; */
+
+      /* Effects */
+      transform: none;
+      transition: all 0.3s ease-in-out 0s;
+      outline: #05b4df dashed 0px;
+      outline-offset: 0px;
+      box-sizing: border-box;
+      resize: none;
+      text-shadow: none;
+      text-overflow: clip;
+      word-wrap: normal;
+      box-shadow: rgba(0, 0, 0, 0.22) 0px 10px 10px -8px;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 30px;
+      border-bottom-left-radius: 30px;
+      border-bottom-right-radius: 30px;
+      /* background-color: red; */
+      border-color: #05b4df;
+      /* display: flex; */
+      position: absolute;
+      bottom: 0;
+      width: 25%;
+      left: 37.5%;
+      background-color: white;
+    }
+    .btn-primary-w:hover {
+      border-color: #05b4df;
+      color: white;
+      background-color: #05b4df;
+    }
+    .table {
+      width: 80%;
+      background-color: white;
+      text-align: center;
+      border: 1px solid black;
+      border-radius: 20px;
+      font-size: 20px;
+      height: 400px;
+    }
+    .table::-webkit-scrollbar {
+      display: none;
+    }
+    thead td {
+      padding: 8px;
+      /* border-bottom: 1px solid black; */
+    }
+    .tdata td:nth-child(1) {
+      padding-left: 25px;
+    }
+    .fa-solid:hover {
+      color: white;
+    }
+
+    details {
+      border: 1px solid #aaa;
+      box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+      border-radius: 4px;
+      padding: 0.5em 0.5em 0;
+      width: 60%;
+      left: 20%;
+      position: absolute;
+      background-color: #fed08c;
+      color: white;
+      margin-top: 70px;
+      font-size: 25px;
+      z-index: 99;
+    }
+
+    summary {
+      font-weight: bold;
+      margin: -0.5em -0.5em 0;
+      padding: 0.5em;
+      text-align: center;
+    }
+
+    details[open] {
+      padding: 0.5em;
+    }
+
+    details[open] summary {
+      border-bottom: 1px solid #aaa;
+      margin-bottom: 0.5em;
+    }
+
+    .wrapper {
+      margin-top: 70px;
+      display: inline-flex;
+      background: #fff;
+      height: 60px;
+      /* width: 75%; */
+      width: 500px;
+      align-items: center;
+      justify-content: space-evenly;
+      border-radius: 5px;
+      padding: 20px 15px;
+      box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.2);
+    }
+    .wrapper .option {
+      background: #fff;
+      height: 100%;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      margin: 0 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      padding: 0 10px;
+      border: 2px solid lightgrey;
+      transition: all 0.3s ease;
+    }
+    .wrapper .option .dot {
+      height: 20px;
+      width: 20px;
+      background: #d9d9d9;
+      border-radius: 50%;
+      position: relative;
+    }
+    .wrapper .option .dot::before {
+      position: absolute;
+      content: "";
+      top: 4px;
+      left: 4px;
+      width: 12px;
+      height: 12px;
+      background: #0069d9;
+      border-radius: 50%;
+      opacity: 0;
+      transform: scale(1.5);
+      transition: all 0.3s ease;
+    }
+    .wrapper input[type="radio"] {
+      display: none;
+    }
+    #option-1:checked:checked ~ .option-1,
+    #option-2:checked:checked ~ .option-2,
+    #option-3:checked:checked ~ .option-3 {
+      border-color: #0069d9;
+      background: #0069d9;
+    }
+    #option-1:checked:checked ~ .option-1 .dot,
+    #option-2:checked:checked ~ .option-2 .dot,
+    #option-3:checked:checked ~ .option-3 .dot {
+      background: #fff;
+    }
+    #option-1:checked:checked ~ .option-1 .dot::before,
+    #option-2:checked:checked ~ .option-2 .dot::before,
+    #option-3:checked:checked ~ .option-3 .dot::before {
+      opacity: 1;
+      transform: scale(1);
+    }
+    .wrapper .option span {
+      font-size: 20px;
+      color: #808080;
+    }
+    #option-1:checked:checked ~ .option-1 span,
+    #option-2:checked:checked ~ .option-2 span,
+    #option-3:checked:checked ~ .option-3 span {
+      color: #fff;
+    }
+    .btn-login {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 25px;
+      background-color: #3bedb8;
+      border: 2px solid white;
+    }
+    .btn-logout {
+      position: absolute;
+      right: 20px;
+      top: 20px;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      font-size: 25px;
+      background-color: #e53428;
+      border: 2px solid white;
+      display: none;
+    }
+  </style>
+  <body onload="getIP()">
+    <div class="content">
+      <div class="blue-space">
+        <center>
+          <br /><br />
+          <h2><i class="fa-solid fa-earth-americas">&nbsp;</i>GLOBAL</h2>
+          <div class="table" style="overflow-y: scroll">
+            <div
+              style="
+                position: sticky;
+                top: 0;
+                background-color: white;
+                border-bottom: 1px solid black;
+              "
+            >
+              <table style="width: 100%">
+                <thead>
+                  <td>Rank</td>
+                  <td>Name</td>
+                  <td>Score</td>
+                </thead>
+              </table>
+            </div>
+            <table class="tdata" style="width: 100%; text-align: center">
+              <tr>
+                <td>1</td>
+                <td>Kousthub</td>
+                <td>1200</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Adithya</td>
+                <td>1000</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Prash</td>
+                <td>999</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Mahesh</td>
+                <td>900</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Kousthub</td>
+                <td>1200</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Adithya</td>
+                <td>1000</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Prash</td>
+                <td>999</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Mahesh</td>
+                <td>900</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Kousthub</td>
+                <td>1200</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Adithya</td>
+                <td>1000</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Prash</td>
+                <td>999</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Mahesh</td>
+                <td>900</td>
+              </tr>
+              <tr>
+                <td>1</td>
+                <td>Kousthub</td>
+                <td>1200</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Adithya</td>
+                <td>1000</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>Prash</td>
+                <td>999</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>Mahesh</td>
+                <td>900</td>
+              </tr>
+            </table>
+          </div>
+        </center>
+      </div>
+      <div class="white-space">
+        <!-- <div class="box-content"> -->
+        <!-- <p>jjj</p> -->
+        <div style="width: 100%; height: 100%">
+          <button id="login" onclick="login()" class="btn-login">
+            <i class="fa-solid fa-right-to-bracket"></i>
+          </button>
+          <button id="logout" onclick="logout()" class="btn-logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+          <div
+            style="
+              position: absolute;
+              width: 80%;
+              left: 10%;
+              height: 80%;
+              top: 10%;
+            "
+          >
+            <form action="/game" method="get">
+              <center>
+                <div class="wrapper">
+                  <input
+                    type="radio"
+                    name="select"
+                    value="seasy"
+                    id="option-1"
+                    checked
+                  />
+                  <input type="radio" name="select" value="smedium" id="option-2" />
+                  <input type="radio" name="select" value="shard" id="option-3" />
+                  <label for="option-1" class="option option-1">
+                    <div class="dot"></div>
+                    <span>Easy</span>
+                  </label>
+                  <label for="option-2" class="option option-2">
+                    <div class="dot"></div>
+                    <span>Medium</span>
+                  </label>
+                  <label for="option-3" class="option option-3">
+                    <div class="dot"></div>
+                    <span>Hard</span>
+                  </label>
+                </div>
+                <!-- Easy<input type="radio" name="def" value="easy" checked>
+                                Medium<input type="radio" name="def" value="medium">
+                                Hard<input type="radio" name="def" value="hard"><br> -->
+              </center>
+              <details>
+                <summary>ADVANCED</summary>
+                <input type="radio" name="adv" value="c" /><span
+                  ><i class="fa-solid fa-c"></i>&nbsp; C/C++</span
+                ><br />
+                <input type="radio" name="adv" value="java" /><span
+                  ><i class="fa-brands fa-java"></i>&nbsp; Java</span
+                ><br />
+                <input type="radio" name="adv" value="python" /><span
+                  ><i class="fa-brands fa-python"></i>&nbsp; Python</span
+                ><br />
+                <input type="radio" name="adv" value="php" /><span
+                  ><i class="fa-brands fa-php"></i>&nbsp; PHP</span
+                ><br />
+                <input type="radio" name="adv" value="js" /><span
+                  ><i class="fa-brands fa-square-js"></i>&nbsp; JavaScript</span
+                ><br />
+                <input type="radio" name="adv" value="sql" /><span
+                  ><i class="fa-solid fa-database"></i>&nbsp; SQL</span
+                ><br />
+                <input type="radio" name="adv" value="url" disabled /><span
+                  ><i class="fa-solid fa-link"></i>&nbsp; URL</span
+                ><br />
+                <input
+                  style="visibility: hidden"
+                  type="radio"
+                  name="adv"
+                  value="def"
+                  checked
+                /><br />
+              </details>
+              <input class="btn btn-primary-w" type="submit" value="PLAY" />
+              <center>
+                <!-- <a href="" class="btn btn-primary-w">PLAY</a> -->
+              </center>
+            </form>
+          </div>
+        </div>
+        <!-- </div> -->
+      </div>
+    </div>
   </body>
 </html>
+
+<script>
+  var Myip;
+  function getIP() {
+    $.getJSON("https://api.ipify.org?format=json", function (data) {
+      Myip = data.ip;
+    });
+  }
+  function login() {
+    myName = prompt(Myip);
+    document.getElementById("login").style.display = "none";
+    document.getElementById("logout").style.display = "block";
+  }
+  function logout() {
+    myName = "";
+    document.getElementById("login").style.display = "block";
+    document.getElementById("logout").style.display = "none";
+  }
+</script>

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" type="text/css" href="./assets/fonts/style.css" />
+    <title>kty.pe</title>
+  </head>
+  <style>
+    @keyframes fade {
+      from {
+        opacity: 0;
+        visibility: hidden;
+        /* top:0; */
+        /* transform: translateY(10px); */
+      }
+      to {
+        opacity: 0.85;
+        visibility: visible;
+        /* bottom: 0; */
+        /* transform: translateY(100vh); */
+      }
+    }
+    /* *{
+    margin: 1;
+} */
+    body {
+      background-color: #eaaf04;
+    }
+    .dropdown {
+      position: absolute;
+      display: flex;
+      top: 0;
+      font-size: 16px;
+      font-weight: bold;
+      font-family: "Poppins", sans-serif;
+      padding: 10px;
+      border-radius: 30px;
+      min-width: 25px;
+      /* left: 10; */
+      animation: fade 0.5s linear forwards;
+      /* background-color: red; */
+      background-color: #fff;
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      /* box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px; */
+      /* border-radius: 10px; */
+    }
+    /* .main{
+    display: flex;
+    height: 100vh;
+    width: 100%;
+} */
+  </style>
+  <body onload="generateWords()" onkeydown="keyEvent(event)">
+    <div
+      style="z-index: 99; position: absolute; width: 20%; left: 40%; top: 20px"
+    >
+      <center>
+        <span
+          style="
+            font-family: 'Digital Numbers Regular';
+            font-weight: normal;
+            font-size: 18px;
+          "
+          >SCORE</span
+        >
+        <span style="font-size: 20px">:</span>
+        <span
+          id="score"
+          style="font-family: 'Digital Numbers Regular';font-weight: normal;font-size: 20px;">0</span>
+      </center>
+    </div>
+    
+  </body>
+  <script
+    src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"
+    referrerpolicy="no-referrer"
+  ></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  <script src="./assets/js/app.js"></script>
+  <script>
+    // alert({{ name }});
+  </script>
+</html>
