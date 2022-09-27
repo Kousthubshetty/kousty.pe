@@ -37,6 +37,7 @@ fs.readFile(File, 'utf8', (err, data) => {
     return;
   }
   global.wordlist=data.split(",");
+  wordlist = [...new Set(wordlist)]
   shuffleArray(wordlist)
   // exports.wordlist=wordlist;
   // module.exports.wl = {wordlist};

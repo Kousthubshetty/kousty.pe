@@ -11,8 +11,16 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.2/axios.min.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
     <title>kous.type</title>
   </head>
@@ -412,88 +420,11 @@
                 </thead>
               </table>
             </div>
-            <table class="tdata" style="width: 100%; text-align: center">
-              <tr>
-                <td>1</td>
-                <td>Kousthub</td>
-                <td>1200</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Adithya</td>
-                <td>1000</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Prash</td>
-                <td>999</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Mahesh</td>
-                <td>900</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>Kousthub</td>
-                <td>1200</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Adithya</td>
-                <td>1000</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Prash</td>
-                <td>999</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Mahesh</td>
-                <td>900</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>Kousthub</td>
-                <td>1200</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Adithya</td>
-                <td>1000</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Prash</td>
-                <td>999</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Mahesh</td>
-                <td>900</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td>Kousthub</td>
-                <td>1200</td>
-              </tr>
-              <tr>
-                <td>2</td>
-                <td>Adithya</td>
-                <td>1000</td>
-              </tr>
-              <tr>
-                <td>3</td>
-                <td>Prash</td>
-                <td>999</td>
-              </tr>
-              <tr>
-                <td>4</td>
-                <td>Mahesh</td>
-                <td>900</td>
-              </tr>
-            </table>
+            <table
+              class="tdata"
+              id="tdata"
+              style="width: 100%; text-align: center; border-collapse: collapse"
+            ></table>
           </div>
         </center>
       </div>
@@ -516,7 +447,7 @@
               top: 10%;
             "
           >
-            <form action="/game" method="get">
+            <form action="/game" method="post">
               <center>
                 <div class="wrapper">
                   <input
@@ -526,8 +457,18 @@
                     id="option-1"
                     checked
                   />
-                  <input type="radio" name="select" value="smedium" id="option-2" />
-                  <input type="radio" name="select" value="shard" id="option-3" />
+                  <input
+                    type="radio"
+                    name="select"
+                    value="smedium"
+                    id="option-2"
+                  />
+                  <input
+                    type="radio"
+                    name="select"
+                    value="shard"
+                    id="option-3"
+                  />
                   <label for="option-1" class="option option-1">
                     <div class="dot"></div>
                     <span>Easy</span>
@@ -590,17 +531,46 @@
 </html>
 
 <script>
-  function close(){
-    document.getElementById('details').open=false;
+  function close() {
+    document.getElementById("details").open = false;
   }
-  var Myip;
+  var Myip, myName;
   function getIP() {
     $.getJSON("https://api.ipify.org?format=json", function (data) {
       Myip = data.ip;
+      // login();
+      scoreBoard()
+      setInterval(scoreBoard,1000)
     });
   }
+
+  function scoreBoard() {
+    axios
+      .post("/scoreboard", {})
+      .then(function (response) {
+        result = response.data;
+        makeTable(result);
+      })
+      .catch(function (error) {
+        alert("Check Internet Connection");
+        location.reload();
+      });
+  }
+  
   function login() {
-    myName = prompt(Myip);
+    while (!myName) {
+      var myName = prompt(Myip + "\nEnter your name");
+    }
+    $.post(
+      "/login",
+      {
+        ip: Myip,
+        name: myName,
+      },
+      function (data, status) {
+        console.log(data);
+      }
+    );
     document.getElementById("login").style.display = "none";
     document.getElementById("logout").style.display = "block";
   }
@@ -608,5 +578,27 @@
     myName = "";
     document.getElementById("login").style.display = "block";
     document.getElementById("logout").style.display = "none";
+  }
+  function makeTable(myArray) {
+    var tresult = " ";
+    for (var i = 0; i < myArray.length; i++) {
+      if (myArray[i][0] == Myip) {
+        rowcolor = "#069861";
+        tresult +=
+          "<tr style='background-color:" + rowcolor + "; border-radius: 30px'>";
+        tresult += "<td>" + (i + 1) + "</td>";
+        tresult += "<td>" + myArray[i][1] + "</td>";
+        tresult += "<td>" + myArray[i][2] + "</td>";
+        tresult += "</tr>";
+      } else {
+        tresult += "<tr>";
+        tresult += "<td>" + (i + 1) + "</td>";
+        tresult += "<td>" + myArray[i][1] + "</td>";
+        tresult += "<td>" + myArray[i][2] + "</td>";
+        tresult += "</tr>";
+      }
+    }
+    document.getElementById("tdata").innerHTML = tresult;
+    tresult.length = 0;
   }
 </script>
